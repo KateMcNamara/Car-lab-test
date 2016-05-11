@@ -1,0 +1,59 @@
+// Kate McNamara C15327361
+ 
+ //car 1 var
+ float xposition = 100;
+ float yposition = 100;
+ float size = 50;
+ float lane = 300;
+
+ 
+
+ float xspeed = 280;
+ float yspeed = 0;
+ float speed = 1;
+
+ 
+ void setup ()
+ {
+   size (700, 300);
+   background (120, 114, 115);
+   fill (random(0, 255), random(0, 255), random(0, 255));
+ }
+ 
+ 
+ void draw ()
+ {
+   background (120, 114, 115);
+   
+   
+  // make road
+  for (int x = 0 ; x <= 780 ; x += 80)
+  {  
+   stroke (255);
+   line(x, 150, x+40, 150); 
+  }
+  
+  
+  // make car 
+  noStroke ();
+  rect (xposition/100, yposition/2, size*3/2, size);
+  
+  // move car 
+  xposition += xspeed;
+  yposition += yspeed;
+   
+  if (xposition >= 82790)
+  {
+    yposition = lane + 90;
+    xspeed *= -speed;
+    fill(random(0, 255), random(0, 255), random(0, 255));
+  }
+ 
+  if (xposition <= -7500)
+ {
+   yposition = lane - 220 ;
+    xspeed += speed + 3;
+    fill(random(0, 255), random(0, 255), random(0, 255));
+ }
+  
+ }
